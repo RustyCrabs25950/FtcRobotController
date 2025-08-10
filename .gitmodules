@@ -1,0 +1,5 @@
+[submodule "TeamCode/src/main/java/org/firstinspires/ftc/teamcode/rustycrabs"]
+	path = TeamCode/src/main/java/org/firstinspires/ftc/teamcode/rustycrabs
+	url = git@github.com:RustyCrabs25950/season2526.git
+	branch = main
+	update = rebase
