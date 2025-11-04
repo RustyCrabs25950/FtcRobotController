@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!--
+Copyright (c) 2025 FTC 25950 Rusty Crabs
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<Robot type="FirstInspires-FTC">
+    <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
+        <LynxModule name="Control Hub" port="173">
+            <goBILDA5202SeriesMotor name="front_left_drive" port="0" />
+            <goBILDA5202SeriesMotor name="front_right_drive" port="1" />
+            <goBILDA5202SeriesMotor name="back_left_drive" port="2" />
+            <goBILDA5202SeriesMotor name="back_right_drive" port="3" />
+            <Servo name="launcher_pivot" port="0" />
+            <Servo name="intake_pivot" port="5" />
+            <BNO055IMU name="imu" port="0" bus="0" />
+            <!-- I2C devices -->
+            <!--goBILDAPinpoint name="pinpoint_imu" port="0" bus="1" /-->
+        </LynxModule>
+        <LynxModule name="Expansion Hub 2" port="2">
+            <goBILDA5202SeriesMotor name="intake_motor" port="0" />
+            <goBILDA5202SeriesMotor name="launcher_right" port="1" />
+            <goBILDA5202SeriesMotor name="launcher_left" port="2" />
+            <!--ServoFullRange name="yy" port="1" /-->
+            <!--Servo name="launcher_pivot" port="5" /-->
+            <!--AnalogInput name="cc" port="1" /-->
+            <!--DigitalDevice name="jj" port="0" /-->
+            <!-- I2C devices -->
+            <!--LynxI2cDevice name="swyft_distance_sensor" bus="0" type="Swyft" /-->
+            <!-- LynxI2cDevice name="rev_color_sensor" port="0" bus="1" /-->
+            <!-- HuskyLens name="husky" port="1" bus="1" /-->
+        </LynxModule>
+    </LynxUsbDevice>
+    <!-- Limelight 3A is configured as an Ethernet device via USB 3.0 -->
+    <!-- EthernetDevice name="limelight" serialNumber="EthernetOverUsb:eth0:172.29.0.21" port="-1" ipAddress="172.29.0.21" /-->
+    <!-- This defines the orientation (UP/DOWN/FORWARD/BACKWORD/LEFT/RIGHT)of your Control Hub on the robot. -->
+    <RevHubOrientationOnRobot logoFacingDirection="UP" usbFacingDirection="RIGHT" />
+</Robot>
