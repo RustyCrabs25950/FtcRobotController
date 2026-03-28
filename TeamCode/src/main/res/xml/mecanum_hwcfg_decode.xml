@@ -27,16 +27,18 @@ SOFTWARE.
             <goBILDA5202SeriesMotor name="front_right_drive" port="1" />
             <goBILDA5202SeriesMotor name="back_left_drive" port="2" />
             <goBILDA5202SeriesMotor name="back_right_drive" port="3" />
-            <Servo name="launcher_pivot" port="0" />
-            <Servo name="intake_pivot" port="5" />
-            <BNO055IMU name="imu" port="0" bus="0" />
+            <!--Servo name="hood_pivot" port="0" /-->
+            <Servo name="gate_pivot" port="5" />
+            <!--BNO055IMU name="imu" port="0" bus="0" /-->
             <!-- I2C devices -->
-            <!--goBILDAPinpoint name="pinpoint_imu" port="0" bus="1" /-->
+            <goBILDAPinpoint name="pinpoint" port="0" bus="1" />
         </LynxModule>
         <LynxModule name="Expansion Hub 2" port="2">
             <goBILDA5202SeriesMotor name="intake_motor" port="0" />
-            <goBILDA5202SeriesMotor name="launcher_right" port="1" />
-            <goBILDA5202SeriesMotor name="launcher_left" port="2" />
+            <goBILDA5202SeriesMotor name="launcher_left" port="1" />
+            <goBILDA5202SeriesMotor name="launcher_right" port="2" />
+            <Servo name="bot_led" port="0" />
+            <Servo name="hood_pivot" port="5" />
             <!--ServoFullRange name="yy" port="1" /-->
             <!--Servo name="launcher_pivot" port="5" /-->
             <!--AnalogInput name="cc" port="1" /-->
@@ -48,7 +50,7 @@ SOFTWARE.
         </LynxModule>
     </LynxUsbDevice>
     <!-- Limelight 3A is configured as an Ethernet device via USB 3.0 -->
-    <!-- EthernetDevice name="limelight" serialNumber="EthernetOverUsb:eth0:172.29.0.21" port="-1" ipAddress="172.29.0.21" /-->
+    <EthernetDevice name="limelight" serialNumber="EthernetOverUsb:eth0:172.29.0.21" port="-1" ipAddress="172.29.0.21" />
     <!-- This defines the orientation (UP/DOWN/FORWARD/BACKWORD/LEFT/RIGHT)of your Control Hub on the robot. -->
     <RevHubOrientationOnRobot logoFacingDirection="UP" usbFacingDirection="RIGHT" />
 </Robot>

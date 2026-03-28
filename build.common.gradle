@@ -21,7 +21,7 @@ apply plugin: 'com.android.application'
 
 android {
 
-    compileSdk 34
+    compileSdk 35
 
     signingConfigs {
         release {
@@ -50,6 +50,7 @@ android {
     defaultConfig {
         signingConfig signingConfigs.debug
         applicationId 'com.qualcomm.ftcrobotcontroller'
+        minSdk 24
         minSdkVersion 24
         //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 28
@@ -110,6 +111,7 @@ android {
 
     packagingOptions {
         pickFirst '**/*.so'
+        jniLibs.useLegacyPackaging true
     }
     ndkVersion '21.3.6528147'
 }

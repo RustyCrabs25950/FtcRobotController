@@ -36,10 +36,16 @@ repositories {
 
 dependencies {
     implementation project(':FtcRobotController')
-    implementation "org.solverslib:core:SNAPSHOT-7cdcc66" // add SolversLib core
-    implementation "org.solverslib:pedroPathing:SNAPSHOT-7cdcc66" // add SolversLib pedroPathing
-    implementation "com.pedropathing:ftc:2.0.2"  // add PedroPathing
-    implementation "com.pedropathing:telemetry:1.0.0"   // add PedroPathing
-    implementation 'com.bylazar:fullpanels:1.0.6'   // add PedroPathing
-    implementation "com.acmerobotics.dashboard:dashboard:0.5.0" // add FTC Dashboard
+
+    // SolversLib: Latest Stable Version + PedroPathing
+    implementation "org.solverslib:core:0.3.3" // core
+    implementation "org.solverslib:pedroPathing:0.3.3" // adapter to pedroPathing
+
+    // PedroPathing Core
+    implementation "com.pedropathing:ftc:2.0.6"  // PedroPathing
+    implementation "com.pedropathing:telemetry:1.0.0"   // PedroPathing
+    implementation 'com.bylazar:fullpanels:1.0.12'   // PedroPathing full panel
+
+    // FTC Dashboard
+    implementation "com.acmerobotics.dashboard:dashboard:0.5.1" // add FTC Dashboard
 }
