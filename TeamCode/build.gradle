@@ -23,29 +23,6 @@ android {
     }
 }
 
-repositories {
-    maven { url = 'https://maven.brott.dev/' }  // Repo host for FTC Dashboard
-    maven { url = "https://mymaven.bylazar.com/releases" }  // Repo host for Pedro Pathing
-    maven {
-        url "https://repo.dairy.foundation/releases"
-    }
-    maven {
-        url "https://repo.dairy.foundation/snapshots"
-    }
-}
-
 dependencies {
     implementation project(':FtcRobotController')
-
-    // SolversLib: Latest Stable Version + PedroPathing
-    implementation "org.solverslib:core:0.3.3" // core
-    implementation "org.solverslib:pedroPathing:0.3.3" // adapter to pedroPathing
-
-    // PedroPathing Core
-    implementation "com.pedropathing:ftc:2.0.6"  // PedroPathing
-    implementation "com.pedropathing:telemetry:1.0.0"   // PedroPathing
-    implementation 'com.bylazar:fullpanels:1.0.12'   // PedroPathing full panel
-
-    // FTC Dashboard
-    implementation "com.acmerobotics.dashboard:dashboard:0.5.1" // add FTC Dashboard
 }
