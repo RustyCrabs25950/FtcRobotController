@@ -24,12 +24,15 @@ SOFTWARE.
     <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
         <LynxModule name="Control Hub" port="173">
             <!-- Rev Control/expansion hub Motor encoder ports 0/3 is more reliable than 1/2 -->
-            <!--goBILDA5202SeriesMotor name="flywheel_pollen" port="0" /-->
-            <!--goBILDA5202SeriesMotor name="flywheel_nectar" port="3" /-->
-            <goBILDA5202SeriesMotor name="intake_motor" port="1" />
+            <goBILDA5202SeriesMotor name="flywheel_pollen" port="0" />
+            <goBILDA5202SeriesMotor name="flywheel_nectar" port="3" />
+            <goBILDA5202SeriesMotor name="intake" port="1" />
             <!--goBILDA5202SeriesMotor name="lift" port="2" /-->
 
-            <!--Servo name="gate_pivot" port="5" /-->
+            <ContinuousRotationServo name="gate_pollen" port="0" />
+            <ServoFullRange name="hood_pollen" port="2" />
+            <ServoFullRange name="hood_nectar" port="3" />
+            <ContinuousRotationServo name="gate_nectar" port="4" />
             <!--Servo name="gate_pivot" port="5" /-->
             <!--LynxEmbeddedIMU name="imu" port="0" bus="0" /-->
             <!-- I2C devices -->
@@ -43,6 +46,9 @@ SOFTWARE.
             <goBILDA5202SeriesMotor name="back_left_drive" port="2" />
             <goBILDA5202SeriesMotor name="back_right_drive" port="3" />
 
+            <Servo name="turntable_front_right" port="0" />
+            <Servo name="turntable_back_left" port="2" />
+            <Servo name="flower_intake_arm" port="1" />
             <!--Servo name="bot_led" port="0" /-->
             <!--Servo name="hood_pivot" port="5" /-->
             <!--ServoFullRange name="yy" port="1" /-->
