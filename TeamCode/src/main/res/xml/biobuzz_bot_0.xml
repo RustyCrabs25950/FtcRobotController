@@ -27,15 +27,19 @@ SOFTWARE.
             <goBILDA5202SeriesMotor name="flywheel_pollen" port="0" />
             <goBILDA5202SeriesMotor name="flywheel_nectar" port="3" />
             <goBILDA5202SeriesMotor name="intake" port="1" />
-            <!--goBILDA5202SeriesMotor name="lift" port="2" /-->
 
-            <ContinuousRotationServo name="gate_pollen" port="0" />
-            <ServoFullRange name="hood_pollen" port="2" />
-            <ServoFullRange name="hood_nectar" port="3" />
-            <ContinuousRotationServo name="gate_nectar" port="4" />
-            <!--Servo name="gate_pivot" port="5" /-->
+            <AnalogInput name="main_current" port="0" />
+            <AnalogInput name="turntable_position" port="2" />
+            <!--DigitalDevice name="digi1" port="0" /-->
+            <!--Led name="led2" port="1" /-->
+            <!--RevTouchSensor name="revtouchsensor3" port="2" /-->
+            <!--RevColorSensorV3 name="revcolorsensorv3" port="1" bus="0" /-->
+            <!--ControlHubImuBHI260AP name="revinternalimubhi269ap" port="2" bus="0" /-->
             <!--LynxEmbeddedIMU name="imu" port="0" bus="0" /-->
-            <!-- I2C devices -->
+            <!-- I2C devices: -->
+            <!--LynxI2cDevice name="swyft_distance_sensor" bus="0" type="Swyft" /-->
+            <!-- LynxI2cDevice name="rev_color_sensor" port="0" bus="1" /-->
+            <!--HuskyLens name="i2c0huskylens" port="1" bus="1" /-->
             <goBILDAPinpoint name="pinpoint" port="0" bus="1" />
         </LynxModule>
         <LynxModule name="Expansion Hub 2" port="2">
@@ -46,9 +50,6 @@ SOFTWARE.
             <goBILDA5202SeriesMotor name="back_left_drive" port="2" />
             <goBILDA5202SeriesMotor name="back_right_drive" port="3" />
 
-            <Servo name="turntable_front_right" port="0" />
-            <Servo name="turntable_back_left" port="2" />
-            <Servo name="flower_intake_arm" port="1" />
             <!--Servo name="bot_led" port="0" /-->
             <!--Servo name="hood_pivot" port="5" /-->
             <!--ServoFullRange name="yy" port="1" /-->
@@ -56,13 +57,19 @@ SOFTWARE.
             <!--AnalogInput name="cc" port="1" /-->
             <!--DigitalDevice name="jj" port="0" /-->
             <!-- I2C devices -->
-            <!--LynxI2cDevice name="swyft_distance_sensor" bus="0" type="Swyft" /-->
-            <!-- LynxI2cDevice name="rev_color_sensor" port="0" bus="1" /-->
             <!-- HuskyLens name="husky" port="1" bus="1" /-->
         </LynxModule>
+        <ServoHub name="Servo Hub 3" port="3">
+            <ServoFullRange name="turntable" port="0" />    <!-- Axon MAX MK2 -->
+            <ContinuousRotationServo name="gate_pollen" port="1" />     <!-- Super Servo Plus -->
+            <ServoFullRange name="hood_pollen" port="2" />              <!-- Gobilda dual-mode speed -->
+            <ContinuousRotationServo name="gate_nectar" port="3" />     <!-- Super Servo Plus -->
+            <ServoFullRange name="hood_nectar" port="4" />              <!-- Gobilda dual-mode speed -->
+            <ServoFullRange name="flower_intake" port="5" />            <!-- Gobilda dual-mode 5-Turn speed -->
+        </ServoHub>
     </LynxUsbDevice>
     <!-- Limelight 3A is configured as an Ethernet device via USB 3.0 -->
-    <!--EthernetDevice name="limelight" serialNumber="EthernetOverUsb:eth0:172.29.0.21" port="-1" ipAddress="172.29.0.21" /-->
+    <EthernetDevice name="limelight" serialNumber="EthernetOverUsb:eth0:172.29.0.21" port="-1" ipAddress="172.29.0.21" />
     <!-- This defines the orientation (UP/DOWN/FORWARD/BACKWORD/LEFT/RIGHT)of your Control Hub IMU on the robot. -->
     <!-- RevHubOrientationOnRobot logoFacingDirection="UP" usbFacingDirection="BACKWORD" /-->
 </Robot>
