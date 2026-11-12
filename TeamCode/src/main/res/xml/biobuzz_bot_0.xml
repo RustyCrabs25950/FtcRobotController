@@ -51,21 +51,18 @@ SOFTWARE.
             <goBILDA5202SeriesMotor name="back_right_drive" port="3" />
 
             <!--Servo name="bot_led" port="0" /-->
-            <!--Servo name="hood_pivot" port="5" /-->
-            <!--ServoFullRange name="yy" port="1" /-->
-            <!--Servo name="launcher_pivot" port="5" /-->
             <!--AnalogInput name="cc" port="1" /-->
             <!--DigitalDevice name="jj" port="0" /-->
             <!-- I2C devices -->
             <!-- HuskyLens name="husky" port="1" bus="1" /-->
         </LynxModule>
         <ServoHub name="Servo Hub 3" port="3">
-            <ServoFullRange name="turntable" port="0" />    <!-- Axon MAX MK2 -->
+            <Servo name="turntable" port="0" />    <!-- Axon MAX MK2 -->
             <ContinuousRotationServo name="gate_pollen" port="1" />     <!-- Super Servo Plus -->
-            <ServoFullRange name="hood_pollen" port="2" />              <!-- Gobilda dual-mode speed -->
+            <Servo name="hood_pollen" port="2" />              <!-- Gobilda dual-mode speed -->
             <ContinuousRotationServo name="gate_nectar" port="3" />     <!-- Super Servo Plus -->
-            <ServoFullRange name="hood_nectar" port="4" />              <!-- Gobilda dual-mode speed -->
-            <ServoFullRange name="flower_intake" port="5" />            <!-- Gobilda dual-mode 5-Turn speed -->
+            <Servo name="hood_nectar" port="4" />              <!-- Gobilda dual-mode speed -->
+            <Servo name="flower_intake" port="5" />            <!-- Gobilda dual-mode 5-Turn speed -->
         </ServoHub>
     </LynxUsbDevice>
     <!-- Limelight 3A is configured as an Ethernet device via USB 3.0 -->

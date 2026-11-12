@@ -1,4 +1,22 @@
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//        google()
+//        maven { url "https://repo.dairy.foundation/releases" }
+//    }
+//    dependencies {
+//        classpath "dev.frozenmilk:Load:0.3.2"
+//    }
+//}
+
+plugins {
+    // Make sure your TeamCode and Load plugins are up to date and compatible
+//    id("dev.frozenmilk.teamcode") version "11.1.0-1.1.2"
+//    id("dev.frozenmilk.sinister.sloth.load") version "0.3.2"
+}
+
 apply plugin: 'com.android.application'
+//apply plugin: 'dev.frozenmilk.sinister.sloth.load'
 
 //
 // build.gradle in TeamCode
@@ -25,11 +43,46 @@ android {
 }
 
 repositories {
-    maven { url = 'https://maven.brott.dev/' } // For FTC Dashboard
+    maven { url = "https://maven.rowanmcalpin.com/" }   // NextFTC developer
+    //maven { url = 'https://maven.brott.dev/' } // For FTC Dashboard
     maven { url = 'https://mymaven.bylazar.com/releases' }  // For FTControl's Panels
+    maven { url = 'https://repo.dairy.foundation/releases' } // For PedroPathing, NextFTC & Panels
+    maven { url = "https://repo.dairy.foundation/snapshots" }
+    maven { url = "https://central.sonatype.com/repository/maven-snapshots/"}  // try to fix NextFTC load issue
+    maven { url = 'https://maven.anygeneric.dev/' }     // BlazeFTC repo
 }
 
 dependencies {
     implementation project(':FtcRobotController')
-    implementation 'com.bylazar:fullpanels:1.0.12'
+    // Pedro
+    implementation 'com.pedropathing:revhub:3.0.2'  // PedroPathing core lib
+    implementation 'com.pedropathing:tuning:1.0.3'  // PedroPathing Tuning support
+    implementation 'com.pedropathing.ivy:pedro:1.1.1'   // PedroPathing Path visualizer
+
+    //NextFTC
+    implementation 'dev.nextftc.v2:control:0.3.0-SNAPSHOT'
+    implementation 'dev.nextftc.v2:hardware:0.3.0-SNAPSHOT'
+    implementation 'dev.nextftc.v2:robot:0.3.0-SNAPSHOT'
+    //implementation 'dev.nextftc.v2:robot:0.3.0'     // NextFTC V2, robot include hardware & control
+    implementation('com.github.haifengl:smile-interpolation:2.6.0') {
+        exclude group: 'org.slf4j'
+    }   // For interpolation algorithms
+    implementation 'com.skeletonarmyftc.marrow:core:1.2.4'
+
+    // BlazeFTC with PedroPathing 3 integration
+    implementation 'dev.anygeneric:blazeftc:0.1.67'
+    implementation 'dev.anygeneric:blazeftc_pedro3:0.1.66'
+
+    // Panels
+    implementation 'com.bylazar:fullpanels:1.0.20'
+
+    // FTC Dashboard
+    //implementation('com.acmerobotics.dashboard:dashboard:0.6.0')
+            //{
+    //    exclude group: 'org.firstinspires.ftc'
+    //}
+    //implementation("com.acmerobotics.slothboard:dashboard:0.3.2+0.6.0") // Sloth compatible Dashboard
+
+    // Sloth, required by panels & NextFTC
+    implementation("dev.frozenmilk.sinister:Sloth:0.3.2")
 }
